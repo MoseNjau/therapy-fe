@@ -42,4 +42,21 @@ export const register = async (email, password) => {
   return data;
 };
 
+export const fetchResources = async () => {
+  const response = await fetch(`${API_BASE_URL}/resources`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message);
+  }
+
+  const data = await response.json();
+  return data;
+};
+
 // Add more API methods as needed
