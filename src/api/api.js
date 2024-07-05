@@ -96,4 +96,81 @@ export const sendMessage = async (message) => {
   return data;
 };
 
-// Add more API methods as needed
+// Add this to your existing api.js
+
+export const fetchProgressData = async () => {
+    const response = await fetch(`${API_BASE_URL}/progress`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+  
+  export const saveProgressData = async (progress) => {
+    const response = await fetch(`${API_BASE_URL}/progress`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({ progress }),
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+  
+  export const fetchMoodData = async () => {
+    const response = await fetch(`${API_BASE_URL}/mood`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+  
+  export const saveMoodData = async (mood) => {
+    const response = await fetch(`${API_BASE_URL}/mood`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({ mood }),
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+
+  
+  
