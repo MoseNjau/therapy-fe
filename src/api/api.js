@@ -198,5 +198,43 @@ export const fetchNotifications = async () => {
   };
   
 
-  
+// Profile
+// Add this to your existing api.js
 
+export const fetchUserProfile = async () => {
+    const response = await fetch(`${API_BASE_URL}/profile`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+  
+  export const updateProfile = async (userData) => {
+    const response = await fetch(`${API_BASE_URL}/profile`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify(userData),
+    });
+  
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  
+    const data = await response.json();
+    return data;
+  };
+  
