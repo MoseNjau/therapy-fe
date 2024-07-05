@@ -42,6 +42,9 @@ export const register = async (email, password) => {
   return data;
 };
 
+
+// Resources
+
 export const fetchResources = async () => {
   const response = await fetch(`${API_BASE_URL}/resources`, {
     method: 'GET',
@@ -58,6 +61,7 @@ export const fetchResources = async () => {
   const data = await response.json();
   return data;
 };
+
 
 export const fetchMessages = async () => {
   const response = await fetch(`${API_BASE_URL}/chat/messages`, {
@@ -96,7 +100,7 @@ export const sendMessage = async (message) => {
   return data;
 };
 
-// Add this to your existing api.js
+// Tracking
 
 export const fetchProgressData = async () => {
     const response = await fetch(`${API_BASE_URL}/progress`, {
@@ -172,5 +176,27 @@ export const fetchProgressData = async () => {
     return data;
   };
 
+
+  // Notifications
+
+export const fetchNotifications = async () => {
+    const response = await fetch(`${API_BASE_URL}/notifications`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+    });
   
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
   
+    const data = await response.json();
+    return data;
+  };
+  
+
+  
+
