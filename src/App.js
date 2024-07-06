@@ -11,8 +11,7 @@ import Profile from './pages/Profile';
 import Resources from './pages/Resources';
 import Tracking from './pages/Tracking';
 import Notifications from './pages/Notifications';
-import CalendarPage from './pages/Calendar';
-import './App.css'; // You can import your global styles here
+import CalendarPage from './pages/alendarPage';
 
 function App() {
   return (
