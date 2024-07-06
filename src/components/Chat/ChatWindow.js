@@ -1,14 +1,14 @@
-// src/components/ChatWindow.js
-
 import React, { useEffect, useState } from 'react';
-import { Box, VStack, Spinner } from '@chakra-ui/react';
+import { Box, VStack, Spinner, Button } from '@chakra-ui/react';
 import { fetchMessages } from '../../api/api';
 import Message from './Message';
 import ChatInput from './ChatInput';
+import { useNavigate } from 'react-router-dom';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getMessages = async () => {
@@ -43,6 +43,9 @@ const ChatWindow = () => {
         </VStack>
       </Box>
       <ChatInput setMessages={setMessages} />
+      <Button colorScheme="blue" mt={4} onClick={() => navigate('/calendar')}>
+        Book an Appointment
+      </Button>
     </Box>
   );
 };
