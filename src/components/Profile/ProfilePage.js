@@ -1,7 +1,7 @@
 // src/components/ProfilePage.js
 
 import React, { useEffect, useState } from 'react';
-import { Box, VStack, Text, Button } from '@chakra-ui/react';
+import { Box, VStack, Text, Button, Avatar, Spinner } from '@chakra-ui/react';
 import { fetchUserProfile } from '../../api/api';
 import ProfileInfo from './ProfileInfo';
 import { Link } from 'react-router-dom';
@@ -23,15 +23,16 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <Box p={4} borderWidth="1px" borderRadius="lg" boxShadow="md">
-      <VStack spacing={4} align="flex-start">
+    <Box p={4} maxW="600px" mx="auto">
+      <VStack spacing={4} align="center">
         {profileData ? (
           <>
+            <Avatar size="2xl" name={profileData.name} src={profileData.avatarUrl} />
             <ProfileInfo profile={profileData} />
-            <Button as={Link} to="/profile/edit" colorScheme="blue">Edit Profile</Button>
+            <Button as={Link} to="/profile/edit" colorScheme="teal">Edit Profile</Button>
           </>
         ) : (
-          <Text>Loading profile...</Text>
+          <Spinner size="xl" />
         )}
       </VStack>
     </Box>
