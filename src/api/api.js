@@ -240,11 +240,10 @@ export const fetchUserProfile = async () => {
   
 
 
-// profile section
-// Add this to your existing api.js
+// Dashboard
 
-export const fetchUserProfile = async () => {
-  const response = await fetch(`${API_BASE_URL}/profile`, {
+export const fetchDashboardData = async () => {
+  const response = await fetch(`${API_BASE_URL}/dashboard`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -260,24 +259,3 @@ export const fetchUserProfile = async () => {
   const data = await response.json();
   return data;
 };
-
-export const updateProfile = async (userData) => {
-  const response = await fetch(`${API_BASE_URL}/profile`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    },
-    body: JSON.stringify(userData),
-  });
-
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message);
-  }
-
-  const data = await response.json();
-  return data;
-};
-
-
