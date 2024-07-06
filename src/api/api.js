@@ -259,3 +259,43 @@ export const fetchDashboardData = async () => {
   const data = await response.json();
   return data;
 };
+
+
+// calendar and Booking Modals
+
+export const fetchCalendarEvents = async () => {
+  const response = await fetch(`${API_BASE_URL}/calendar/events`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    },
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message);
+  }
+
+  const data = await response.json();
+  return data;
+};
+
+export const createCalendarEvent = async (eventDetails) => {
+  const response = await fetch(`${API_BASE_URL}/calendar/events`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    },
+    body: JSON.stringify(eventDetails),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message);
+  }
+
+  const data = await response.json();
+  return data;
+};
