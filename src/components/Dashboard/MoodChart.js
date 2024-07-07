@@ -1,7 +1,7 @@
 // src/components/Dashboard/MoodChart.js
 
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, Flex } from '@chakra-ui/react'; // Import Flex here
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import FilterMenu from './FilterMenu';
