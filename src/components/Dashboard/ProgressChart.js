@@ -1,7 +1,7 @@
 // src/components/Dashboard/ProgressChart.js
 
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, Flex } from '@chakra-ui/react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import FilterMenu from './FilterMenu';
