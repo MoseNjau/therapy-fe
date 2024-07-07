@@ -1,4 +1,3 @@
-// src/components/Auth/loginForm.js
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, useToast, Heading, VStack, Icon } from '@chakra-ui/react';
 import { FaLock, FaEnvelope } from 'react-icons/fa';
