@@ -1,4 +1,3 @@
-// src/components/Common/Navbar.js
 import React from 'react';
 import { Box, Flex, Text, IconButton, Avatar, Menu, MenuButton, MenuList, MenuItem, useColorMode } from '@chakra-ui/react';
 import { FiBell, FiUser, FiLogOut, FiSun, FiMoon } from 'react-icons/fi';
@@ -15,6 +14,7 @@ const Navbar = () => {
       bg={colorMode === 'light' ? 'white' : 'gray.800'}
       shadow="sm"
       borderBottomWidth="1px"
+      mt="8"
     >
       <Text fontSize="xl" fontWeight="bold">
         Dashboard
