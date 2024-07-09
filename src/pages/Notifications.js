@@ -1,14 +1,10 @@
 // pages/Notifications
-import React from 'react';
-import MainLayout from '../layouts/MainLayout';
-import Notifications from '../components/Notifications/Notifications';
+import React from "react";
+import MainLayout from "../layouts/MainLayout";
+import Notifications from "../components/Notifications/Notifications";
 
 const NotificationsPage = () => {
-  return (
-    <MainLayout>
-      <Notifications />
-    </MainLayout>
-  );
+  return <Notifications />;
 };
 
 export default NotificationsPage;
