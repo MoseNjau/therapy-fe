@@ -1,4 +1,4 @@
-// src/components/profile/profileInfo.js
+// src/components/Profile/ProfileInfo.js
 import React from 'react';
 import { Box, VStack, Text, Avatar } from '@chakra-ui/react';
 
@@ -9,7 +9,9 @@ const ProfileInfo = ({ profile }) => {
         <Avatar size="xl" name={profile.name} src={profile.avatarUrl} />
         <Text fontSize="2xl" fontWeight="bold">{profile.name}</Text>
         <Text fontSize="md">{profile.email}</Text>
-        {/* Add other profile information here */}
+        <Text fontSize="md">{profile.gender}</Text>
+        <Text fontSize="md">{profile.phoneNumber}</Text>
+        <Text fontSize="md">{profile.address}</Text>
       </VStack>
     </Box>
   );

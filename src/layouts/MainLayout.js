@@ -1,3 +1,4 @@
+// src/layouts/MainLayout.js
 import React, { useState } from 'react';
 import { Box, Flex, IconButton } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
